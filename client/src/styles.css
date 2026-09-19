@@ -345,3 +345,143 @@ html, body {
   box-shadow: 0 8px 24px rgba(0,0,0,0.2); animation: slideUp 0.3s ease;
 }
 @keyframes slideUp { from { opacity: 0; transform: translate(-50%, 20px); } to { opacity: 1; transform: translate(-50%, 0); } }
+
+/* Visual refresh: a warmer campus noticeboard palette with clearer hierarchy. */
+:root {
+  --yale: #123b52;
+  --yale-light: #087f8c;
+  --green: #2f9e73;
+  --amber: #e6a23c;
+  --coral: #d9654f;
+  --gray: #8b9a9e;
+  --bg: #f4f1e9;
+  --card: #fffdf8;
+  --text: #19313b;
+  --muted: #6e7d7f;
+  --border: #dedbd1;
+  --header: #123b52;
+  --header-text: #fffdf8;
+}
+
+[data-theme="dark"] {
+  --bg: #10242c;
+  --card: #18343d;
+  --text: #eff4ed;
+  --muted: #a8b8b5;
+  --border: #2e4b52;
+  --header: #0b202a;
+  --header-text: #f5f1e7;
+}
+
+html, body {
+  font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+  background: var(--bg);
+}
+
+body {
+  background-image: radial-gradient(circle at 12% 0%, rgba(230, 162, 60, 0.14), transparent 28rem),
+    radial-gradient(circle at 100% 22%, rgba(8, 127, 140, 0.1), transparent 24rem);
+}
+
+#root {
+  max-width: 560px;
+  box-shadow: 0 0 0 1px rgba(18, 59, 82, 0.04), 0 24px 70px rgba(18, 59, 82, 0.08);
+}
+
+.header {
+  padding: 24px 20px 22px;
+  background: linear-gradient(135deg, #123b52 0%, #145b68 100%);
+  box-shadow: 0 8px 24px rgba(18, 59, 82, 0.16);
+}
+
+.header h1 {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  letter-spacing: -0.7px;
+}
+
+.header p { margin-top: 5px; color: #d4e6df; opacity: 1; }
+.score-pill { background: #f0c765; color: #19313b; padding: 8px 12px; }
+
+.search-wrap { padding: 18px 20px 0; }
+.search-input {
+  padding: 14px 16px 14px 42px;
+  border-radius: 14px;
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(18, 59, 82, 0.08);
+  background: var(--card);
+}
+.search-input:focus, .login input:focus, .login select:focus, .note-input:focus {
+  outline: 3px solid rgba(8, 127, 140, 0.18);
+  border-color: var(--yale-light);
+}
+
+.filters { padding: 16px 20px 10px; gap: 7px; }
+.chip { border-color: transparent; background: rgba(255, 253, 248, 0.82); box-shadow: 0 2px 8px rgba(18, 59, 82, 0.06); }
+.chip.active { background: var(--yale); box-shadow: 0 4px 10px rgba(18, 59, 82, 0.18); }
+.sort-row { padding: 4px 20px 14px; }
+.sort-row select { border-color: var(--border); padding: 8px 10px; }
+.legend { padding: 4px 20px 16px; }
+
+.grid { gap: 12px; padding: 0 20px; }
+.machine-card {
+  min-height: 126px;
+  padding: 16px;
+  border-radius: 16px;
+  border-color: transparent;
+  box-shadow: 0 5px 18px rgba(18, 59, 82, 0.07);
+}
+.machine-card:hover { box-shadow: 0 10px 24px rgba(18, 59, 82, 0.14); }
+.machine-card .label { font-size: 15px; padding-right: 20px; }
+.machine-card .building { margin-bottom: 14px; }
+
+.status-available { background: #d9f1e5; color: #1b6a4d; }
+.status-in_use { background: #fff0c9; color: #895b16; }
+.status-almost_done { background: #f9ddd5; color: #984536; }
+.status-out_of_order { background: #e5e9e7; color: #506267; }
+.status-reserved { background: #d9e9ed; color: #1b5f6c; }
+
+.nav {
+  max-width: 560px;
+  background: rgba(255, 253, 248, 0.94);
+  backdrop-filter: blur(14px);
+  border-top-color: rgba(222, 219, 209, 0.85);
+  padding-top: 12px;
+}
+.nav button.active { color: var(--yale-light); }
+.nav .icon { font-size: 19px; }
+
+.login {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 48px 28px;
+  background: linear-gradient(155deg, rgba(255, 253, 248, 0.96), rgba(244, 241, 233, 0.9));
+  position: relative;
+  overflow: hidden;
+}
+.login::before {
+  content: '';
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: #f0c765;
+  top: -100px;
+  right: -82px;
+  opacity: 0.55;
+}
+.login h1, .login p, .login input, .login select, .login button, .login .error { position: relative; }
+.login h1 { font-family: Georgia, serif; font-size: 42px; color: var(--yale); letter-spacing: -1.5px; }
+.login p { max-width: 260px; line-height: 1.5; margin-bottom: 34px; }
+.login input, .login select { border-color: var(--border); border-radius: 13px; background: rgba(255, 253, 248, 0.9); }
+.login button { border-radius: 13px; background: var(--yale); box-shadow: 0 8px 18px rgba(18, 59, 82, 0.2); }
+
+.detail, .section-title { padding-left: 20px; padding-right: 20px; }
+.detail-card, .stat-box, .notif, .buddy-card { box-shadow: 0 5px 18px rgba(18, 59, 82, 0.06); border-color: transparent; }
+.section-title { padding-top: 24px; }
+
+@media (min-width: 560px) {
+  body { padding: 24px 0; }
+  #root { min-height: calc(100vh - 48px); border-radius: 24px; overflow: hidden; }
+  .nav { bottom: 24px; border-radius: 0 0 24px 24px; }
+}

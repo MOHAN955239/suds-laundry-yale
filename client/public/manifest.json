@@ -1,0 +1,9 @@
+{
+  "name": "Suds — Yale Laundry",
+  "short_name": "Suds",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#1E3A5F",
+  "icons": []
+}

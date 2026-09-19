@@ -1,0 +1,16 @@
+services:
+  suds:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-change-me}
+      DB_PATH: /app/data/suds.db
+    volumes:
+      - suds-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  suds-data:

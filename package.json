@@ -1,0 +1,17 @@
+{
+  "name": "suds",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": ["server", "client"],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm -w server run dev\" \"npm -w client run dev\"",
+    "build": "npm -w client run build && npm -w server run build",
+    "start": "npm -w server run start",
+    "seed": "npm -w server run seed",
+    "demo-seed": "npm -w server run demo-seed",
+    "selfcheck": "npm -w server run selfcheck"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
